@@ -1,4 +1,4 @@
-# Byte-compiled / optimized / DLL files
+# Python Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -172,3 +172,41 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# C and C++ Specific
+# C files
+*.c~
+
+# Object files
+*.o
+*.obj
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Executables
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Dependency files
+*.d
+
+# Build directories
+build/
+cmake-build-*/
+CMakeFiles/
+Makefile
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+
+# Miscellaneous
+*.log
+*.bak
+*.tmp
