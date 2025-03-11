@@ -5,11 +5,11 @@ function controleInicial() {
     const abaDevolucoesInicial = ss.getSheetByName('DEVOLUÇÕES - INICIAL');
     const abaAcompanhamentoInicial = ss.getSheetByName('ACOMPANHAMENTO INICIAL');
     const funcionariosInicial = [
-        'ODILENE',
-        'PAT',
-        'RAPHAEL',
-        'JULIA',
-        'SEM AGENTE',
+        'xx',
+        'yy',
+        'zz',
+        'ww',
+        'll',
     ].sort()
 
     if (!abaInicial || !abaInicialRealizada || !abaDevolucoesInicial) {

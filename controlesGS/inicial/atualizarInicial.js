@@ -2,17 +2,17 @@ function atualizarInicial() {
   let ss = SpreadsheetApp.getActiveSpreadsheet();
   let abaInicial = ss.getSheetByName("INICIAL");
   let dadosInicial = abaInicial.getDataRange().getValues();
-  let abaOdilene = ss.getSheetByName("Odilene").getDataRange().getValues();
-  let abaJulia = ss.getSheetByName("Julia").getDataRange().getValues();
+  let abaxx = ss.getSheetByName("xx").getDataRange().getValues();
+  let abayy = ss.getSheetByName("yy").getDataRange().getValues();
 
-  if (!dadosInicial || !abaOdilene || !abaJulia) {
+  if (!dadosInicial || !abaxx || !abayy) {
     Logger.log("❌ Verifique se todas as abas estão corretas.");
     return;
   }
 
   let abas = [
-    { nome: "Cópia de Odilene", dados: abaOdilene, nomePessoa: "ODILENE" },
-    { nome: "Cópia de Julia", dados: abaJulia, nomePessoa: "JULIA" }
+    { nome: "Cópia de xx", dados: abaxx, nomePessoa: "xx" },
+    { nome: "Cópia de yy", dados: abayy, nomePessoa: "yy" }
   ];
 
   let atualizacoes = [];

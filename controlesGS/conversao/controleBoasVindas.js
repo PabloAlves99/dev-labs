@@ -592,17 +592,17 @@ function ControleBoasVindas() {
 
 function listaDeFuncionarios() {
     return [
-        "ANNA",
-        "ISABELLA",
-        "JADE",
-        "JOÃO",
-        "LAURA",
-        "LIVIA",
-        "MARIANA",
-        "MARIA EDUARDA",
-        "RAYSSA",
-        "THAYNA",
-        "VIVIAN"
+        "xx",
+        "yy",
+        "zz",
+        "ll",
+        "kk",
+        "jj",
+        "hh",
+        "gg",
+        "ff",
+        "ss",
+        "aa"
     ].sort();
 };
 

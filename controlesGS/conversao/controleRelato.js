@@ -6,7 +6,7 @@ function controleRelato() {
     const abaValidacao = ss.getSheetByName("VALIDAÇÃO");
     const abaArqRelato = ss.getSheetByName("CLIENTES ARQUIVADOS - RELATO");
     const abaDevRelato = ss.getSheetByName("DEVOLUÇÕES - RELATO");
-    const funcionarios = ["ANA", "EMILLY", "JEANNE", "SABRINA", "LETÍCIA"];
+    const funcionarios = ["aa", "bb", "cc", "ss", "ee"];
     let infoRelato = {};
     let todosDados = {};
 
