@@ -11,6 +11,26 @@ class OrganizadorDeArquivos:
         self.arquivos_com_erro_permissao = []
 
     def organizar_arquivos(self):
+        """
+        Organizador de arquivos por extensão.
+        O script irá organizar os arquivos de uma pasta em pastas separadas
+        de acordo com a extensão do arquivo.
+
+        Exemplo:
+        Se a pasta tiver os arquivos: arquivo1.txt, arquivo2.txt, arquivo3.jpg
+        O script irá criar as pastas: TXT e JPG e mover os arquivos para as
+        respectivas pastas.
+
+        Uso:
+        - Selecione a pasta que deseja organizar.
+        - O script irá criar uma pasta chamada "organizadorDeArquivos" dentro
+        da pasta selecionada.
+        - Dentro da pasta "organizadorDeArquivos" serão criadas pastas de
+        acordo com a extensão dos arquivos.
+        - Os arquivos serão movidos para as pastas de acordo com a extensão.
+        - Caso haja algum arquivo com erro de permissão, o script irá informar
+        quais arquivos não puderam ser movidos.
+        """
         caminho = askdirectory(title="Selecione uma pasta")
         if not caminho:
             return
