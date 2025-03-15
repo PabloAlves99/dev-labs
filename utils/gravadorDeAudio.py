@@ -3,6 +3,8 @@ import wave
 import os
 
 audio = pyaudio.PyAudio()
+
+# Abrindo o stream de áudio para gravação
 stream = audio.open(
     input=True,
     format=pyaudio.paInt16,
@@ -14,19 +16,19 @@ stream = audio.open(
 frames = []
 
 try:
-
+    # Loop para gravar continuamente até que o usuário pressione Ctrl+C
     while True:
         block = stream.read(1024)
         frames.append(block)
 except KeyboardInterrupt:
-    pass
+    print("Gravação interrompida.")
 
-stream.start_stream()
+stream.stop_stream()
 stream.close()
 audio.terminate()
 
+# Definindo o caminho para salvar o arquivo
 script_folder = os.path.dirname(os.path.abspath(__file__))
-
 wave_path = os.path.join(script_folder, "gravacao.wav")
 
 
