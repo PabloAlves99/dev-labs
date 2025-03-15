@@ -1,0 +1,42 @@
+New-Item -Path $PROFILE -ItemType File -Force  # Cria ou sobrescreve o arquivo de perfil do usuário
+New-Item -ItemType Directory -Path "C:\NovaPasta"  # Cria uma nova pasta
+Remove-Item -Path "C:\Arquivo.txt" -Force  # Deleta um arquivo ou pasta (use -Recurse para excluir pastas com arquivos)
+Get-ChildItem -Path "C:\Pasta" -Recurse  # Lista arquivos e subpastas
+Copy-Item "C:\origem.txt" -Destination "D:\destino.txt"  # Copia um arquivo
+Move-Item "C:\arquivo.txt" -Destination "D:\novo.txt"  # Move/renomeia um arquivo
+
+notepad $PROFILE  # Abre o arquivo de perfil do usuário (para adicionar funções e alias)
+function proj { Set-Location "C:\MeusProjetos" }  # Cria um atalho para um diretório específico
+
+
+
+
+
+cd "C:\Users"  # Muda para um diretório específico
+cd ..  # Sobe um nível na hierarquia de diretórios
+Get-Location  # Exibe o diretório atual
+ls  # Lista os arquivos e diretórios (alias para Get-ChildItem)
+
+
+
+Get-Process  # Lista processos em execução
+Stop-Process -Name "notepad" -Force  # Finaliza um processo pelo nome
+Start-Process "notepad.exe"  # Abre o Bloco de Notas
+
+
+
+Get-LocalUser  # Lista os usuários locais
+Enable-LocalUser -Name "Usuario"  # Habilita um usuário
+Disable-LocalUser -Name "Usuario"  # Desabilita um usuário
+
+
+
+Test-Connection google.com  # Testa conexão com um site (ping)
+Get-NetIPAddress  # Mostra IPs da máquina
+ipconfig /all  # Exibe detalhes da rede (executa um comando do CMD dentro do PowerShell)
+
+
+Get-ComputerInfo  # Mostra informações do sistema
+Get-Service  # Lista serviços em execução
+Restart-Computer -Force  # Reinicia o computador
+
