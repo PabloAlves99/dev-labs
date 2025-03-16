@@ -4,7 +4,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
-from automacao.enviar_email.mensagem_email import EmailBody
+from mensagem_email import EmailBody
 
 
 class ProcessarEmail:
