@@ -70,6 +70,8 @@ class ProcessarEmail:
             except Exception as e:
                 print(f"Erro não identificado ao enviar email: {e}")
 
+        self.display_email_result()
+
     def display_email_result(self):
         if self.emails_enviados:
             print(f'\nEmail enviado com sucesso para:\n\n'
