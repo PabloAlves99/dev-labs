@@ -1,6 +1,5 @@
 /minha_api/
 │── app.py  # Ponto de entrada da aplicação
-│── config.py  # Configurações do projeto
 │── database.py  # Configuração do banco de dados
 │── models.py  # Modelos do banco de dados
 │── resources/
