@@ -1,9 +1,11 @@
-/minha_api/
 │── app.py  # Ponto de entrada da aplicação
+│── auth.py  # Autenticação JWT
+│── config.py  # Configurações do projeto
 │── database.py  # Configuração do banco de dados
 │── models.py  # Modelos do banco de dados
 │── resources/
 │   ├── user.py  # Rotas e lógica de usuários
-│   ├── product.py  # Rotas e lógica de produtos
-│── auth.py  # Autenticação JWT
-└── requirements.txt  # Dependências do projeto
+│   ├── register.py  # Rotas e lógica de registro
+│   ├── recover.py  # Rotas e lógica de redefinição de senha
+│
+└── 
