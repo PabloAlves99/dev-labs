@@ -7,13 +7,11 @@ from auth import UserLogin
 from config import Config
 
 app = Flask(__name__)
-api = Api(app)
-jwt = JWTManager(app)
-
 app.config.from_object(Config)
 
 db.init_app(app)
-
+api = Api(app)
+jwt = JWTManager(app)
 
 # Rotas
 api.add_resource(UserResource, '/user/<int:user_id>')
