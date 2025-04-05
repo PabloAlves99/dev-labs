@@ -4,14 +4,15 @@ from flask_jwt_extended import JWTManager
 from database import db
 from resources.user import UserResource
 from auth import UserLogin
+from config import Config
 
 app = Flask(__name__)
 api = Api(app)
 jwt = JWTManager(app)
 
+app.config.from_object(Config)
+
 db.init_app(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///example.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 
 # Rotas
