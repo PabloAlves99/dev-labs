@@ -7,12 +7,12 @@ function controle() {
         "CLIENTES FINALIZADOS CORRETO",
     ];
     const mapAgentes = {
-        "LAIS": "LAÍS MARA VARGENS FERRAZ",
-        "JOÃO VICTOR": "JOÃO VICTOR ARAUJO PEREIRA",
-        "MATHEUS": "MATHEUS HENRIQUE RODRIGUES SANTOS CAMPOS",
-        "JACKELINE": "JACKELINE RAMALHO MACHADO",
-        "LETICIA": "LETÍCIA DENISE COSTA E SILVA",
-        "ALINE": "ALINE AUGUSTA ALVES DA SILVA"
+        "xx": "xx",
+        "yy": "yy",
+        "ll": "ll",
+        "kk": "kk",
+        "mm": "mm",
+        "oo": "oo"
     }
 
     const hoje = formatarData(new Date());

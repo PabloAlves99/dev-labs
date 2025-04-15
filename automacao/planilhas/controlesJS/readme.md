@@ -1,14 +1,10 @@
 # Controles GS
 
-Este repositório contém códigos de Google Apps Scripts reais utilizados no meu trabalho.
-
-Todos os scripts são destinados a gerar controles das planilhas que as equipes utilizam.
-
 ## Objetivo
 
-Este repositório tem como objetivo compartilhar scripts desenvolvidos em Google Apps Script 
+Esse diretório tem como objetivo compartilhar alguns scripts desenvolvidos para o Google Apps Script 
 
-que automatizam o controle e o tratamento dos dados em planilhas. Além de realizar o processamento 
+que automatizam o controle e o tratamento dos dados em planilhas do google sheets. Além de realizar o processamento 
 
 e organização das informações, os scripts fornecem métricas detalhadas sobre o preenchimento e os 
 
