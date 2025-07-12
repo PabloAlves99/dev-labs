@@ -3,64 +3,52 @@ from tkinter.filedialog import askdirectory
 import os
 
 
-class OrganizadorDeArquivos:
-    def __init__(self):
+class ManipuladorDeArquivos:
+    def _init_(self):
         self.data_atual = datetime.now().strftime("%d%m%Y")
         self.segundo_atual = datetime.now().strftime("%S")
         self.minuto_atual = datetime.now().strftime("%M")
         self.arquivos_com_erro_permissao = []
 
+    def mover_arquivo(self, caminho, arquivo, extensao, caminho_organizador):
+        try:
+            if extensao:
+                extensao_formatada = extensao.upper().replace(".", "")
+            else:
+                extensao_formatada = "PASTAS"
+
+            pasta_extensao = f"{caminho_organizador}/{extensao_formatada}"
+
+            if not os.path.exists(pasta_extensao):
+                os.makedirs(pasta_extensao)
+
+            destino = f"{pasta_extensao}/{arquivo}"
+            origem = f"{caminho}/{arquivo}"
+
+            try:
+                os.rename(origem, destino)
+            except FileExistsError:
+                novo_nome = f"{self.minuto_atual}{self.segundo_atual}_{arquivo}"
+                destino = f"{pasta_extensao}/{novo_nome}"
+                os.rename(origem, destino)
+
+        except PermissionError:
+            self.arquivos_com_erro_permissao.append(arquivo)
+
     def organizar_arquivos(self):
-        """
-        Organizador de arquivos por extensão.
-        O script irá organizar os arquivos de uma pasta em pastas separadas
-        de acordo com a extensão do arquivo.
-
-        Exemplo:
-        Se a pasta tiver os arquivos: arquivo1.txt, arquivo2.txt, arquivo3.jpg
-        O script irá criar as pastas: TXT e JPG e mover os arquivos para as
-        respectivas pastas.
-
-        Uso:
-        - Selecione a pasta que deseja organizar.
-        - O script irá criar uma pasta chamada "organizadorDeArquivos" dentro
-        da pasta selecionada.
-        - Dentro da pasta "organizadorDeArquivos" serão criadas pastas de
-        acordo com a extensão dos arquivos.
-        - Os arquivos serão movidos para as pastas de acordo com a extensão.
-        - Caso haja algum arquivo com erro de permissão, o script irá informar
-        quais arquivos não puderam ser movidos.
-        """
         caminho = askdirectory(title="Selecione uma pasta")
         if not caminho:
             return
-        lista_arquivos = os.listdir(caminho)
 
+        lista_arquivos = os.listdir(caminho)
         caminho_organizador = f"{caminho}/organizadorDeArquivos"
+
         if not os.path.exists(caminho_organizador):
             os.makedirs(caminho_organizador)
 
         for arquivo in lista_arquivos:
-            _, extensao = os.path.splitext(f"{caminho}/{arquivo}")
-
-            if extensao:
-                try:
-                    extensao_formatada = extensao.upper().replace(".", "")
-                    pasta_extensao = f"{caminho_organizador}/{extensao_formatada}"
-
-                    if not os.path.exists(pasta_extensao):
-                        os.makedirs(pasta_extensao)
-
-                    os.rename(f"{caminho}/{arquivo}",
-                              f"{pasta_extensao}/{arquivo}")
-
-                except PermissionError:
-                    self.arquivos_com_erro_permissao.append(arquivo)
-
-                except FileExistsError:
-                    novo_nome = f"{self.minuto_atual}{self.segundo_atual}_{arquivo}"
-                    os.rename(f"{caminho}/{arquivo}",
-                              f"{pasta_extensao}/{novo_nome}")
+            nome, extensao = os.path.splitext(arquivo)
+            self.mover_arquivo(caminho, arquivo, extensao, caminho_organizador)
 
         if self.arquivos_com_erro_permissao:
             arquivos = '\n'.join(self.arquivos_com_erro_permissao)
@@ -72,5 +60,5 @@ class OrganizadorDeArquivos:
         print("Arquivos organizados com sucesso!")
 
 
-if __name__ == '__main__':
-    OrganizadorDeArquivos().organizar_arquivos()
+if __name__ == "__main__":
+    ManipuladorDeArquivos().organizar_arquivos()
