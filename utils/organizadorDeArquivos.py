@@ -4,7 +4,9 @@ import os
 
 
 class ManipuladorDeArquivos:
-    def _init_(self):
+    PASTA_ORGANIZADORA = "organizadorDeArquivos"
+
+    def __init__(self):
         self.data_atual = datetime.now().strftime("%d%m%Y")
         self.segundo_atual = datetime.now().strftime("%S")
         self.minuto_atual = datetime.now().strftime("%M")
@@ -41,13 +43,17 @@ class ManipuladorDeArquivos:
             return
 
         lista_arquivos = os.listdir(caminho)
-        caminho_organizador = f"{caminho}/organizadorDeArquivos"
+        caminho_organizador = f"{caminho}/{self.PASTA_ORGANIZADORA}"
 
         if not os.path.exists(caminho_organizador):
             os.makedirs(caminho_organizador)
 
         for arquivo in lista_arquivos:
             nome, extensao = os.path.splitext(arquivo)
+
+            if nome == f'{self.PASTA_ORGANIZADORA}':
+                continue
+
             self.mover_arquivo(caminho, arquivo, extensao, caminho_organizador)
 
         if self.arquivos_com_erro_permissao:
@@ -61,4 +67,5 @@ class ManipuladorDeArquivos:
 
 
 if __name__ == "__main__":
-    ManipuladorDeArquivos().organizar_arquivos()
+    MA = ManipuladorDeArquivos()
+    MA.organizar_arquivos()
